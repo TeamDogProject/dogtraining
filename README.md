@@ -10,7 +10,9 @@ Administrador, que es el responsable de la academia de formación y realizar las
 Cliente o usuario, que es la persona que contratará los diferentes servicios de la academia. Estos tendrán diferentes tipos ( básico, medio, premium ) en función de los paquetes contratados.
 
 3.1 Básico es el que no ha contratado servicio o solo ha accedido a la sesión de prueba. 
+
 3.2 Medium el cliente pagará un número de clases determinado y el profesor dará acceso a los diferentes módulos que consideré necesario.
+
 3.3 Premium es para clientes que quieran acceder al curso completo de adiestramiento, que permite la formación a distancia.
 
 
