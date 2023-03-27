@@ -23,10 +23,10 @@ Method
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /products                    | YES   | Admin | Get all products          | -                              | [{ products }]                          |
-| GET    | /products/:productId         | YES   | Admin | Get one product           |  product_id                    | { product }                             |
-| PUT    | /products/:productId         | YES   | Admin | Update product            |  product_id                    | "Product updated"                       |
-| DELETE | /products/:id                | YES   | Admin | Remove one product        |  product_id                    | "Product deleted"                    |
+| GET    | /products                 | YES   | Admin | Get all products             | -                          | [{ products }]                          |
+| GET    | /products/:productId      | YES   | Admin | Get one product              |  product_id                | { product }                             |
+| PUT    | /products/:productId      | YES   | Admin | Update product               |  product_id                | "Product updated"                       |
+| DELETE | /products/:id             | YES   | Admin | Remove one product           |  product_id                | "Product deleted"                    |
 
 
 ### Dogs Endpoints
@@ -35,8 +35,8 @@ Method
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /dogs                     | YES   | Admin | Get all dogs                 | -                          | [{ dogs }]                           |
 | GET    | /dogs/:dogId              | YES   | Admin | Get one dog                  |  dog_id                    | { dog }                              |
-| PUT    | /dogs/:dogId              | YES   | Admin | Update dog                   |  dog_id                    | "Dog updated"                       |
-| DELETE | /dogs/:id                 | YES   | Admin | Remove one dog               |  dog_id                    | "Dog deleted"                       |
+| PUT    | /dogs/:dogId              | YES   | Admin | Update dog                   |  dog_id                    | "Dog updated"                        |
+| DELETE | /dogs/:id                 | YES   | Admin | Remove one dog               |  dog_id                    | "Dog deleted"                        |
 
 
 ### Packages Endpoints
