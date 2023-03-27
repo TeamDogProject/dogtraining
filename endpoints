@@ -1,0 +1,81 @@
+### Auth Endpoints
+
+Method    
+| METHOD | ENDPOINT     | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                                 | RETURNS |
+| ------ | ------------ | ----- | ---- | --------------------- | ----------------------------------------------------------- | ------- |
+| POST   | /auth/signup | -     | -    | User Sign Up          | name, surname, username, identity_card,email,phone, password, confirm_password | token   |
+| POST   | /auth/login  | -     | -    | Delete skills form DB | email, password                                             | token   |
+
+
+
+### Users Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /users                    | YES   | Admin | Get all users                | -                          | [{ users }]                          |
+| GET    | /users/:userId            | YES   | Admin | Get one user                 | user_id                    | { user }                             |
+| PUT    | /users/:userId            | YES   | Admin | Update user                  | user_id                    | "User updated"                       |
+| DELETE | /users/:id                | YES   | Admin | Remove one user              | user_id                    | "Profile deleted"                    |
+
+
+
+### Products Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /products                 | YES   | Admin | Get all products             | -                          | [{ products }]                          |
+| GET    | /products/:productId      | YES   | Admin | Get one product              |  product_id                | { product }                             |
+| PUT    | /products/:productId      | YES   | Admin | Update product               |  product_id                | "Product updated"                       |
+| DELETE | /products/:id             | YES   | Admin | Remove one product           |  product_id                | "Product deleted"                    |
+
+
+### Dogs Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /dogs                     | YES   | Admin | Get all dogs                 | -                          | [{ dogs }]                           |
+| GET    | /dogs/:dogId              | YES   | Admin | Get one dog                  |  dog_id                    | { dog }                              |
+| PUT    | /dogs/:dogId              | YES   | Admin | Update dog                   |  dog_id                    | "Dog updated"                        |
+| DELETE | /dogs/:id                 | YES   | Admin | Remove one dog               |  dog_id                    | "Dog deleted"                        |
+
+
+### Packages Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /packages                 | YES   | Admin | Get all packages             | -                          | [{ packages }]                           |
+| GET    | /packages/packageId       | YES   | Admin | Get one package              |  package_id                | { package }                              |
+| PUT    | /packages/:packageId      | YES   | Admin | Update package               |  package_id                | "Package updated"                       |
+| DELETE | /packages/:id             | YES   | Admin | Remove one package           |  package_id                | "Package deleted"                       |
+
+
+### 
+categories Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /categories               | YES   | Admin | Get all categories           | -                          | [{ categories }]                           |
+| GET    | /categories/packageId     | YES   | Admin | Get one category             |  category_id               | { category }                              |
+| PUT    | /categories/:packageId    | YES   | Admin | Update category              |  category_id               | "Category updated"                       |
+| DELETE | /categories/:id           | YES   | Admin | Remove one category          |  category_id               | "category deleted"      
+
+
+### 
+payments Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /payments                 | YES   | Admin | Get all payments             | -                          | [{ payments }]                           |
+| GET    | /payments/paymentId       | YES   | Admin | Get one payment              |  payment_id                | { payment }                              |
+| PUT    | /payments /:paymentId     | YES   | Admin | Update payment               |  payment_id                | "Payment updated"                       |
+| DELETE | /payments /:id            | YES   | Admin | Remove one payment           |  payment_id                | "Payment deleted"      
+
+
+videos Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
+| GET    | /videos                   | YES   | Admin | Get all videos               | -                          | [{ videos}]                           |
+| GET    | /videos/videoId           | YES   | Admin | Get one video                |  video_id                  | { video }                              |
+| PUT    | /videos /:videoId         | YES   | Admin | Update video                 |  video_id                  | "Video updated"                       |
+| DELETE | /videos /:id              | YES   | Admin | Remove one video             |  video_id                  | "Video deleted"      
