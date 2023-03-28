@@ -5,13 +5,8 @@ router.use('/auth', authRouter)
 router.use('/users', require('./user.router'))
 router.use('/dogs', require('./dog.router'))
 router.use('/packages', require('./package.router'))
-
-
-
-
-
-
-
+router.use('/categories', require('./category.router'))
+router.use('/videos', require('./video.router'))
 
 
 module.exports = router
