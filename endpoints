@@ -13,13 +13,15 @@ Method
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /users                    | YES   | Admin | Get all users                | -                          | [{ users }]                          |
+| DELETE | /users/profile            | YES   | User | Remove one user               | user_id                    | "Profile deleted"                    |
+| PUT    | /users/profile            | YES   | User | Update user                   | user_id                    | "User updated"                       |
+| GET    | /users/profile            | YES   | User | Get all users                 | -                          | [{ users }]                          |
 | GET    | /users/:userId            | YES   | Admin | Get one user                 | user_id                    | { user }                             |
-| POST   | /users/:userId            | YES   | Admin | Create one user              |  user_id                   | { user }                             |
+| POST   | /users/                   | YES   | Admin | Create one user              |  user_id                   | { user }                             |
 | PUT    | /users/:userId            | YES   | Admin | Update user                  | user_id                    | "User updated"                       |
 | DELETE | /users/:id                | YES   | Admin | Remove one user              | user_id                    | "Profile deleted"                    |
-| POST   | /users/:userId            | YES   | User  | Create one user              |  user_id                   | { user }                             |
-| DELETE | /users/:id                | YES   | User | Remove one user               | user_id                    | "Profile deleted"                    |
-| PUT    | /users/:userId            | YES   | User | Update user                   | user_id                    | "User updated"                       |
+
+
 
 
 
@@ -28,13 +30,12 @@ Method
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /products                 | YES   | Admin | Get all products             | -                          | [{ products }]                        |
-| GET    | /products/:productId      | YES   | Admin | Get one product              |  product_id                | { product }                             |
-| POST    | /products/:productId     | YES   | Admin | Get one product              |  product_id                | { product }                             |
+| GET    | /products                 | YES   | All   | Get all products             | -                          | [{ products }]                        |
+| GET    | /products/:productId      | YES   | All   | Get one product              |  product_id                | { product }                             |
+| POST   | /products/                | YES   | Admin | Create one product           |  product_id                | { product }                             |
 | PUT    | /products/:productId      | YES   | Admin | Update product               |  product_id                | "Product updated"                       |
 | DELETE | /products/:id             | YES   | Admin | Remove one product           |  product_id                | "Product deleted"                    |
-| GET    | /products                 | YES   | User  | Get all products             | -                          | [{ products }]                        |
-| GET    | /products/:productId      | YES   | User  | Get one product              |  product_id                | { product }                             |
+
 
 
 ### Dogs Endpoints
@@ -42,14 +43,11 @@ Method
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /dogs                     | YES   | Admin | Get all dogs                 | -                          | [{ dogs }]                           |
-| GET    | /dogs/:dogId              | YES   | Admin | Get one dog                  |  dog_id                    | { dog }                              |
-| POST   | /dogs/:dogId              | YES   | Admin | Create one dog               |  dog_id                    | { dog }                             |
-| PUT    | /dogs/:dogId              | YES   | Admin | Update dog                   |  dog_id                    | "Dog updated"                        |
-| DELETE | /dogs/:id                 | YES   | Admin | Remove one dog               |  dog_id                    | "Dog deleted"                        |
-| GET    | /dogs/:dogId              | YES   | User  | Get one dog                  |  dog_id                    | { dog }                              |
-| POST   | /dogs/:dogId              | YES   | User  | Create one dog               |  dog_id                    | { dog }                             |
-| PUT    | /dogs/:dogId              | YES   | User  | Update dog                   |  dog_id                    | "Dog updated"                        |
-| DELETE | /dogs/:id                 | YES   | User  | Remove one dog               |  dog_id                    | "Dog deleted"                        |
+| GET    | /dogs/profile             | YES   | User  | Get one dog                  |  dog_id                    | { dog }                              |
+| GET    | /dogs/:dogId              | YES   | All   | Get one dog                  |  dog_id                    | { dog }                              |
+| POST   | /dogs                     | YES   | All   | Create one dog               |  dog_id                    | { dog }                             |
+| PUT    | /dogs/:dogId              | YES   | All   | Update dog                   |  dog_id                    | "Dog updated"                        |
+| DELETE | /dogs/:id                 | YES   | All   | Remove one dog               |  dog_id                    | "Dog deleted"                        |
 
 
 
@@ -57,13 +55,12 @@ Method
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /packages                 | YES   | Admin | Get all packages             | -                          | [{ packages }]                           |
-| GET    | /packages/packageId       | YES   | Admin | Get one package              |  package_id                | { package }                              |
-| POST   | /packages/:packageId      | YES   | Admin | Create one package           |  package_id                | { package }                             |
+| GET    | /packages                 | YES   | All   | Get all packages             | -                          | [{ packages }]                           |
+| GET    | /packages/:packageId      | YES   | All   | Get one package              |  package_id                | { package }                              |
+| POST   | /packages/                | YES   | Admin | Create one package           |  package_id                | { package }                             |
 | PUT    | /packages/:packageId      | YES   | Admin | Update package               |  package_id                | "Package updated"                       |
 | DELETE | /packages/:id             | YES   | Admin | Remove one package           |  package_id                | "Package deleted"                       |
-| GET    | /packages                 | YES   | User  | Get all packages             | -                          | [{ packages }]                           |
-| GET    | /packages/packageId       | YES   | User  | Get one package              |  package_id                | { package }                              |
+
 
 
 ### 
@@ -71,9 +68,9 @@ categories Endpoints
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
-| GET    | /categories               | YES   | Admin | Get all categories           | -                          | [{ categories }]                           |
-| GET    | /categories/categoryId    | YES   | Admin | Get one category             |  category_id               | { category }                              |
-| POST   | /categories/:categoryId   | YES   | Admin | Create one package           |  package_id                | { package }                             |
+| GET    | /categories               | YES   | Admin | Get all categories           | -                          | [{ categories }]                     |
+| GET    | /categories/:categoryId   | YES   | Admin | Get one category             |  category_id               | { category }                              |
+| POST   | /categories               | YES   | Admin | Create one package           |                            | { package }                             |
 | PUT    | /categories/:categoryId   | YES   | Admin | Update category              |  category_id               | "Category updated"                       |
 | DELETE | /categories/:id           | YES   | Admin | Remove one category          |  category_id               | "category deleted"      
 
@@ -85,6 +82,7 @@ payments Endpoints
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /payments                 | YES   | Admin | Get all payments             | -                          | [{ payments }]                           |
 | GET    | /payments/paymentId       | YES   | Admin | Get one payment              |  payment_id                | { payment }                              |
+| POST   | /payments                 | YES   | Admin | Create one payment           |       -                    | { package }                             |
 | PUT    | /payments /:paymentId     | YES   | Admin | Update payment               |  payment_id                | "Payment updated"                       |
 | DELETE | /payments /:id            | YES   | Admin | Remove one payment           |  payment_id                | "Payment deleted"      
 
@@ -95,6 +93,7 @@ videos Endpoints
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /videos                   | YES   | Admin | Get all videos               | -                          | [{ videos}]                           |
 | GET    | /videos/:videoId          | YES   | Admin | Get one video                |  video_id                  | { video }                              |
+| POST   | /videos                   | YES   | Admin | Create one video             |        -                   | { package }                             |
 | PUT    | /videos /:videoId         | YES   | Admin | Update video                 |  video_id                  | "Video updated"                       |
 | DELETE | /videos /:id              | YES   | Admin | Remove one video             |  video_id                  | "Video deleted"      
 | GET    | /videos                   | YES   | User  | Get all videos               | -                          | [{ videos}]                           |
