@@ -7,12 +7,6 @@ const Category = sequelize.define('category',{
         type: DataTypes.STRING,
         allowNull:false
     },
-    createdAt: {
-        type: DataTypes.STRING,
-        defaultValue: function () {
-            return new Date()
-        }
-    },
 },
     { updatedAt: false }
 )

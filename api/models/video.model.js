@@ -18,12 +18,6 @@ const Video = sequelize.define('video',{
         type: DataTypes.STRING,
         allowNull: false
     },
-    createdAt: {
-        type: DataTypes.STRING,
-        defaultValue: function () {
-            return new Date()
-        }
-    },
 },
     { updatedAt: false }
 )

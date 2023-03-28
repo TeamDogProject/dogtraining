@@ -26,12 +26,6 @@ const Package = sequelize.define('package', {
         type: DataTypes.ENUM,
         values: ['online', 'face-to-face']
     },
-    createdAt: {
-        type: DataTypes.STRING,
-        defaultValue: function () {
-            return new Date()
-        }
-    },
 },
     { updatedAt: false }
 )

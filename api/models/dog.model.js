@@ -40,12 +40,6 @@ const Dog = sequelize.define('dog', {
     valoration: {
         type: DataTypes.TEXT,
     },
-    createdAt: {
-        type: DataTypes.STRING,
-        defaultValue: function () {
-            return new Date()
-        }
-    },
 },
     { updatedAt: false }
 )
