@@ -13,6 +13,10 @@ function initilizedListeningAndExpress(){
           .use(morgan('dev'))
           .use(express.json())
           .use('/api', require('./api/routes'))
+
+          .listen(process.env.PORT, () =>{
+            console.log(`Listening on port:${process.env.PORT}`)
+          })
 }
 
 async function startAPI (){
