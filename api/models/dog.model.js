@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
-const sequelize = new Sequelize('../../database')
+const {sequelize} = require('../../database')
 
-const Dog = sequelize('dog', {
+const Dog = sequelize.define('dog', {
 
     photo: {
         type: DataTypes.STRING,
@@ -19,32 +19,34 @@ const Dog = sequelize('dog', {
     }, 
 
     age: {
-        type: DataTypes.NUMBER,
-        allowNull: false
+        type: DataTypes.INTEGER,
     }, 
 
     sex: {
-        type: DataTypes.ENUM({
-            values: ['male', 'female']
-        }),
-        allowNull: false
+        type: DataTypes.ENUM,
+        values: ['male', 'female']
     },
 
     chip: {
         type: DataTypes.STRING,
         unique: true,
-        allowNull: false
+
     }, 
 
     problem: {
-        type: DataTypes.TEXT
+        type: DataTypes.TEXT,
     },
 
     valoration: {
         type: DataTypes.TEXT,
     },
-    
-
-
-    update: false
-}) 
+    createdAt: {
+        type: DataTypes.STRING,
+        defaultValue: function () {
+            return new Date()
+        }
+    },
+},
+    { updatedAt: false }
+)
+module.exports= Dog

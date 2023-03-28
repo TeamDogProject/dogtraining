@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
-const sequelize = new Sequelize('../../database')
+const {sequelize} = require('../../database')
 
-const Video = sequelize('video',{
+const Video = sequelize.define('video',{
     url: {
         type: DataTypes.STRING,
         allowNull:false
@@ -18,5 +18,15 @@ const Video = sequelize('video',{
         type: DataTypes.STRING,
         allowNull: false
     },
-    update:false
-})
+    createdAt: {
+        type: DataTypes.STRING,
+        defaultValue: function () {
+            return new Date()
+        }
+    },
+},
+    { updatedAt: false }
+)
+
+
+module.exports= Video

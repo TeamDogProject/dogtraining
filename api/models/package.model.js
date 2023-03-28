@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
-const sequelize = new Sequelize('../../database')
+const { sequelize } = require('../../database')
 
-const Package = sequelize('package', {
+const Package = sequelize.define('package', {
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -23,11 +23,16 @@ const Package = sequelize('package', {
     },
 
     place: {
-        type: DataTypes.ENUM({
-            values: ['online', 'face-to-face']
-        }),
-        allowNull: false
+        type: DataTypes.ENUM,
+        values: ['online', 'face-to-face']
     },
-
-
-})
+    createdAt: {
+        type: DataTypes.STRING,
+        defaultValue: function () {
+            return new Date()
+        }
+    },
+},
+    { updatedAt: false }
+)
+module.exports = Package

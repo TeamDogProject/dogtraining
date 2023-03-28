@@ -1,13 +1,14 @@
 require('dotenv').config()
 const {checkConnection, syncModels }= require('./database/index')
-
+const addRelationsToModels = require('./database/model')
 
 const express = require('express')
 const morgan = require('morgan')
 
 async function checkAndSyncMysql (){
     await checkConnection() 
-    await syncModels('alter')
+    await addRelationsToModels()
+    await syncModels('force')
 }
 
 function initilizedListeningAndExpress(){

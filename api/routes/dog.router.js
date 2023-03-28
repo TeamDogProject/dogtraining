@@ -9,3 +9,5 @@ router.get('/:id', getOneDog)
 router.post('/', createOneDog)
 router.put('/:id', updateDog)
 router.delete('/:id', deleteDog)
+
+module.exports = router

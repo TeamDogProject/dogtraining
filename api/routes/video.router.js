@@ -8,3 +8,5 @@ router.get('/:id', getOneVideo)
 router.post('/', createOneVideo)
 router.put('/:id', updateVideo)
 router.delete('/:id', deleteVideo)
+
+module.exports = router

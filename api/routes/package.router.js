@@ -8,3 +8,5 @@ router.get('/:id', getOnePackage)
 router.post('/', createOnePackage)
 router.put('/:id', updatePackage)
 router.delete('/:id', deletePackage)
+
+module.exports = router
