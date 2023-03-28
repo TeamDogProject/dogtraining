@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize')
 const sequelize = new Sequelize('../../database')
 
-const User = sequelize ('user', {
+const User = sequelize('user', {
     name: {
         type: DataTypes.STRING,
         allowNull: false
@@ -41,13 +41,6 @@ const User = sequelize ('user', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    
-    createdAt: {
-        type: DataTypes.STRING,
-        defaultValue: function () {
-            return new Date()
-        }
-    }
-    
-    { updatedAt: false },
+
+    update: false
 }) 
