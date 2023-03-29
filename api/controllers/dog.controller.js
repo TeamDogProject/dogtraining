@@ -95,7 +95,7 @@ async function addDog(req, res) {
 
     try {
         const profile = await User.findByPk(res.locals.user.id)
-        const dog = await profile.addDog([req.body])
+        const dog = await profile.createDog(req.body)
 
         if (dog) {
             return res.status(200).json(dog)

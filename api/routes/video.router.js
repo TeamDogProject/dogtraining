@@ -1,13 +1,15 @@
 const router = require('express').Router()
 const { checkAuth, checkAdmin } = require('../middleware/auth')
 
-const { getAllVideos, getOneVideo,createOneVideo,updateVideo,deleteVideo } = require('../controllers/video.controller')
+    
+const { getAllVideos, getOneVideo, createOneVideo, updateVideo, deleteVideo, getAllVideosByCategories } = require('../controllers/video.controller')
 
 
-router.get('/', getAllVideos)
-router.get('/:id', getOneVideo)
-router.post('/', createOneVideo)
-router.put('/:id', updateVideo)
-router.delete('/:id', deleteVideo)
+router.get('/', checkAuth, checkAdmin, getAllVideos)
+router.get('/:id', checkAuth, checkAdmin, getOneVideo)
+router.post('/', checkAuth, checkAdmin, createOneVideo)
+router.put('/:id', checkAuth, checkAdmin, updateVideo)
+router.delete('/:id', checkAuth, checkAdmin, deleteVideo)
+router.get('/', checkAuth, getAllVideosByCategories )
 
 module.exports = router

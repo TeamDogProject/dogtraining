@@ -1,4 +1,7 @@
 const Video = require('../models/video.model')
+const Category = require('../models/category.model')
+const User = require('../models/user.model')
+const { Op } = require ('sequelize')
 
 async function getAllVideos (req, res) {
     try {
@@ -73,26 +76,33 @@ async function deleteVideo(req, res) {
     }
 }
 
-/*async function getVideosUser(req, res) {
+
+async function getAllVideosByCategories(req, res) {
     try {
-        const videosuser = await Video.findAll({
-            where: req.query
-        })
-        if (videosuser) {
-            return res.status(200).json(videosuser)
-        } else {
-            return res.status(404).send('Videos by user not found')
-        }
+
+        const user = await User.findByPk(res.locals.user.id)
+        const categories = await user.getCategories()
+
+        const videos = await Promise.all(categories.map( async category => {
+            const array = await category.getVideos()
+            return { category: category, videos: array }
+        }))
+
+        return res.send(200).json(videos)
 
     } catch (error) {
         res.status(500).send(error.message)
     }
-}*/
+}
+
+
+
 
 module.exports = {
     getAllVideos,
     getOneVideo,
     createOneVideo,
     updateVideo,
-    deleteVideo
+    deleteVideo,
+    getAllVideosByCategories
 }

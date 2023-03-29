@@ -16,6 +16,9 @@ function addRelationsToModels(){
         User.belongsToMany(Package, { through: 'users_packages' })
         Package.belongsToMany(User, { through: 'users_packages' })
 
+        Category.hasOne(Package)
+        Package.belongsTo(Category)
+
         Category.belongsToMany(Video, { through: 'categories_videos' })
         Video.belongsToMany(Category, { through: 'categories_videos' })
 
