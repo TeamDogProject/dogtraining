@@ -8,9 +8,17 @@ router.get('/',checkAdmin, getAllUsers,(req, res) =>{
     res.send('Aqui el admin muestra todos los usuarios')
 })
 
-router.get('/profile', getProfile)
-router.put('/profile', updateProfile)
-router.delete('/profile',deleteProfile)
+router.get('/profile', checkAuth, getProfile, (req, res) => {
+    res.send('Aqui el usuario consigue su perfil')
+})
+
+router.put('/profile', checkAuth, updateProfile, (req, res) => {
+    res.send('Aqui el usuario actualiza su perfil')
+})
+
+router.delete('/profile', checkAuth, deleteProfile, (req, res) => {
+    res.send('Aqui el usuario puede eliminar su perfil')
+})
 
 router.get('/:id', checkAdmin, getOneUser, (req, res) => {
     res.send('Aqui el admin consigue un usuario')
