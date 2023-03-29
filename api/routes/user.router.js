@@ -14,9 +14,9 @@ router.delete('/profile', checkAuth, deleteProfile)
 
 router.get('/:id', checkAdmin, getOneUser)
 
-router.post('/',checkAdmin, createOneUser)
+router.post('/', checkAuth, checkAdmin, createOneUser)
 
-router.put('/:id', checkAdmin, updateUser)
+router.put('/:id', checkAuth, checkAdmin, updateUser)
 
 router.delete('/:id',checkAuth, checkAdmin, deleteUser)
 

@@ -22,7 +22,7 @@ const checkAuth = (req,res, next)=> {
 }
 
 const checkAdmin = (req, res, next) => {
-    if(res.locals.role === 'admin') {
+    if(res.locals.user.role === 'admin') {
         next()
     } else {
         return res.status(401).send('Unauthorized')

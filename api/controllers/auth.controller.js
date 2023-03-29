@@ -10,7 +10,7 @@ const signUp = async (req,res)=>{
         })
        
         const token = jwt.sign({ email: user.email }, process.env.SECRET)
-        res.status(200).json(token)
+        res.status(200).json({token})
 
         
     } catch (error) {
