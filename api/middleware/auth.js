@@ -13,10 +13,20 @@ const checkAuth = (req,res, next)=> {
         if (!user){
             return res.status(400).send('Invalid token')
         }
+
+        res.locals.user = user
+
         next()
 
     }) 
-
 }
 
-module.exports = { checkAuth }
+const checkAdmin = (req, res, next) => {
+    if(res.locals.role === 'admin') {
+        next()
+    } else {
+        return res.status(401).send('Unauthorized')
+    }
+}
+
+module.exports = { checkAuth, checkAdmin }
