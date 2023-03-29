@@ -32,7 +32,7 @@ router.put('/:id', checkAdmin, updateUser, (req, res) => {
     res.send('Aqui el admin actualiza un usuario')
 })
 
-router.delete('/:id', checkAdmin, deleteUser, (req, res) => {
+router.delete('/:id',checkAuth, checkAdmin, deleteUser, (req, res) => {
     res.send('Aqui el admin elimina un usuario')
 })
 

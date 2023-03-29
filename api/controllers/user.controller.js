@@ -109,12 +109,13 @@ async function updateProfile(req, res){
 
 async function deleteProfile(req, res){
     try {
+        console.log(res.locals.user)
         const profile = await User.destroy({
             where: {
-                id: req.params.id,
+                id: res.locals.user.id
             },
         })
-        if (user) {
+        if (profile) {
             return res.status(200).json('Profile deleted')
         } else {
             return res.status(404).send('Profile not found')

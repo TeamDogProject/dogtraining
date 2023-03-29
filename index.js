@@ -8,7 +8,7 @@ const morgan = require('morgan')
 async function checkAndSyncMysql (){
     await checkConnection() 
     await addRelationsToModels()
-    await syncModels('alter')
+    await syncModels()
 }
 
 function initilizedListeningAndExpress(){
