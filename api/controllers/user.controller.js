@@ -78,7 +78,7 @@ async function deleteUser(req, res){
 
 async function getProfile(req, res){
     try {
-        const profile = await User.findByPk(req.params.id)
+        const profile = await User.findByPk(res.locals.user.id)
         if (profile) {
             return res.status(200).json(profile)
         } else {
@@ -93,7 +93,7 @@ async function updateProfile(req, res){
     try {
         const [updated] = await User.update(req.body, {
             where: {
-                id: req.params.id,
+                id: res.locals.user.id
             },
         })
         console.log(updated)
