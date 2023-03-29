@@ -24,7 +24,7 @@ router.get('/:id', checkAdmin, getOneUser, (req, res) => {
     res.send('Aqui el admin consigue un usuario')
 })
 
-router.post('/', checkAdmin, createOneUser, (req, res) => {
+router.post('/',checkAdmin, createOneUser, (req, res) => {
     res.send('Aqui el admin crea un usuario')
 })
 
