@@ -1,13 +1,16 @@
 const router = require('express').Router()
+const { checkAuth, checkAdmin } = require('../middleware/auth')
 
-const { getAllDogs, getOneDog, createOneDog, updateDog, deleteDog, getDogProfile } = require('../controllers/dog.controller')
+const { getAllDogs, getOneDog, createOneDog, updateDog, deleteDog, getDogProfile, addDog } = require('../controllers/dog.controller')
 
 
-router.get('/', getAllDogs)
-router.get('/profile', getDogProfile)
-router.get('/:id', getOneDog)
-router.post('/', createOneDog)
-router.put('/:id', updateDog)
-router.delete('/:id', deleteDog)
+router.get('/', checkAuth, checkAdmin, getAllDogs)
+router.get('/profile', checkAuth, getDogProfile)
+router.get('/:id',checkAuth, getOneDog)
+router.post('/',checkAuth, createOneDog)
+router.put('/:id',checkAuth, updateDog)
+router.delete('/:id',checkAuth, deleteDog)
+router.post('/addDog',checkAuth, addDog)
+
 
 module.exports = router

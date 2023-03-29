@@ -40,7 +40,7 @@ async function createOneUser(req, res){
 
 async function updateUser(req, res){
     try {
-        const [updated] = await User.update(req.body,{
+        const updated = await User.update(req.body,{
             where: {
                     id: req.params.id,
             },
@@ -91,7 +91,7 @@ async function getProfile(req, res){
 
 async function updateProfile(req, res){
     try {
-        const [updated] = await User.update(req.body, {
+        const updated = await User.update(req.body, {
             where: {
                 id: res.locals.user.id
             },

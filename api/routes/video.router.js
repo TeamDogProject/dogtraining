@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { checkAuth, checkAdmin } = require('../middleware/auth')
 
 const { getAllVideos, getOneVideo,createOneVideo,updateVideo,deleteVideo } = require('../controllers/video.controller')
 

@@ -8,7 +8,11 @@ const signUp = async (req,res)=>{
         const user = await User.create(req.body, {
             fields: ['name', 'surname', 'username', 'email', 'identity_card', 'password', 'phone', 'confirmation_password' ]
         })
-        res.status(200).json(user)
+       
+        const token = jwt.sign({ email: user.email }, process.env.SECRET)
+        res.status(200).json(token)
+
+        
     } catch (error) {
         console.error(error)
         res.status(500).send('Error cannot create user')

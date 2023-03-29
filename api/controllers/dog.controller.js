@@ -1,13 +1,15 @@
 const Dog = require('../models/dog.model')
+const User = require('../models/user.model')
 
-async function getAllDogs(req, res){
+
+async function getAllDogs(req, res) {
     try {
         const dogs = await Dog.findAll({
             where: req.query
         })
-        if(dogs){
+        if (dogs) {
             return res.status(200).json(dogs)
-        }else{
+        } else {
             return res.status(404).send('Dog not found')
         }
 
@@ -76,9 +78,11 @@ async function deleteDog(req, res) {
 
 async function getDogProfile(req, res) {
     try {
-        const dogprofile = await Dog.findByPk(req.params.id)
-        if (dogprofile) {
-            return res.status(200).json(dogprofile)
+        const profile = await User.findByPk(res.locals.user.id)
+        const dogs = await profile.getDogs()
+
+        if (profile) {
+            return res.status(200).json(dogs)
         } else {
             return res.status(404).send('Dog profile not found')
         }
@@ -87,4 +91,23 @@ async function getDogProfile(req, res) {
     }
 }
 
-module.exports = { getAllDogs, getOneDog, createOneDog, updateDog, deleteDog, getDogProfile }
+async function addDog(req, res) {
+
+    try {
+        const profile = await User.findByPk(res.locals.user.id)
+        const dog = await profile.addDog([req.body])
+
+        if (dog) {
+            return res.status(200).json(dog)
+        } else {
+            return res.status(404).send('Dog not added')
+        }
+
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+
+}
+
+
+module.exports = { getAllDogs, getOneDog, createOneDog, updateDog, deleteDog, getDogProfile, addDog }
