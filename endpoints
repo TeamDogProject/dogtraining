@@ -7,7 +7,6 @@ Method
 | POST   | /auth/login  | -     | -    |  User Loggin          | email, password                                             | token   |
 
 
-
 ### Users Endpoints
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
@@ -20,10 +19,6 @@ Method
 | POST   | /users/                   | YES   | Admin | Create one user              |  user_id                   | { user }                             |
 | PUT    | /users/:userId            | YES   | Admin | Update user                  | user_id                    | "User updated"                       |
 | DELETE | /users/:id                | YES   | Admin | Remove one user              | user_id                    | "Profile deleted"                    |
-
-
-
-
 
 
 ### Products Endpoints
@@ -50,7 +45,6 @@ Method
 | DELETE | /dogs/:id                 | YES   | All   | Remove one dog               |  dog_id                    | "Dog deleted"                        |
 
 
-
 ### Packages Endpoints
 
 | METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
@@ -62,7 +56,6 @@ Method
 | DELETE | /packages/:id             | YES   | Admin | Remove one package           |  package_id                | "Package deleted"                       |
 
 
-
 ### 
 categories Endpoints
 
@@ -70,7 +63,7 @@ categories Endpoints
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /categories               | YES   | Admin | Get all categories           | -                          | [{ categories }]                     |
 | GET    | /categories/:categoryId   | YES   | Admin | Get one category             |  category_id               | { category }                              |
-| POST   | /categories               | YES   | Admin | Create one package           |                            | { package }                             |
+| POST   | /categories               | YES   | Admin | Create one package           |                            | { category }                             |
 | PUT    | /categories/:categoryId   | YES   | Admin | Update category              |  category_id               | "Category updated"                       |
 | DELETE | /categories/:id           | YES   | Admin | Remove one category          |  category_id               | "category deleted"      
 
@@ -93,7 +86,19 @@ videos Endpoints
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /videos                   | YES   | Admin | Get all videos               | -                          | [{ videos}]                           |
 | GET    | /videos/:videoId          | YES   | Admin | Get one video                |  video_id                  | { video }                              |
-| POST   | /videos                   | YES   | Admin | Create one video             |        -                   | { package }                             |
+| POST   | /videos                   | YES   | Admin | Create one video             |        -                   | { video }                             |
 | PUT    | /videos /:videoId         | YES   | Admin | Update video                 |  video_id                  | "Video updated"                       |
 | DELETE | /videos /:id              | YES   | Admin | Remove one video             |  video_id                  | "Video deleted"      
 | GET    | /videos                   | YES   | User  | Get all videos               | -                          | [{ videos}]                           |
+
+
+Sessions Endpoints
+
+| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                               |
+| ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------  |
+| GET    | /sessions                 | YES   | Admin | Get all sessions               | -                          | [{ sessions}]                           |
+| GET    | /sessions/:sessionId      | YES   | Admin | Get one session                |  session_id                  | { session }                             |
+| POST   | /sessions                 | YES   | Admin | Create one session             |        -                   | { session }                           |
+| PUT    | /sessions /:sessionId     | YES   | Admin | Update session                 |  session_id                  | "Session updated"                       |
+| DELETE | /sessions/:id             | YES   | Admin | Remove one session             |  session_id                  | "Session deleted"      
+| GET    | /sessions                 | YES   | User  | Get all sessions               | -                          | [{ sessions }]                           |
