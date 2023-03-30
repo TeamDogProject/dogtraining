@@ -81,7 +81,7 @@ async function deleteVideo(req, res) {
 }
 
 
-async function getAllVideosByCategories(req, res) {
+async function getMyVideos(req, res) {
     try {
 
         const user = await User.findByPk(res.locals.user.id)
@@ -92,23 +92,13 @@ async function getAllVideosByCategories(req, res) {
             return { category: category, videos: array }
         }))
 
-        return res.send(200).json(videos)
+        return res.status(200).json(videos)
 
     } catch (error) {
         res.status(500).send(error.message)
     }
 }
 
-async function getMyVideos (req, res) {
-    try {
-        const user = await User.findByPk(res.locals.user.id)
-        await User.getVideos()
-        return res.status(200).json(user)
-
-    } catch (error) {
-        throw Error
-    }
-}
 
 
 
@@ -119,6 +109,5 @@ module.exports = {
     createOneVideo,
     updateVideo,
     deleteVideo,
-    getAllVideosByCategories,
     getMyVideos
 }
