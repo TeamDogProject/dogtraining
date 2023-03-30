@@ -4,7 +4,7 @@ const { checkAuth, checkAdmin } = require('../middleware/auth')
 const { getAllUsers, getOneUser, createOneUser, updateUser, deleteUser, getProfile, updateProfile, deleteProfile } = require('../controllers/user.controller')
 
 
-router.get('/',checkAdmin, getAllUsers)
+router.get('/',checkAuth,checkAdmin, getAllUsers)
 
 router.get('/profile', checkAuth, getProfile)
 
