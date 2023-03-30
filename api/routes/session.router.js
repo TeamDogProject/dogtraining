@@ -8,7 +8,7 @@ router.get('/',checkAuth,checkAdmin, getAllSessions)
 
 router.get('/:id', checkAuth ,checkAdmin, getOneSession)
 
-router.post('/', checkAuth, checkAdmin, createOneSession)
+router.post('/:packageId/user/:userId', checkAuth, checkAdmin, createOneSession)
 
 router.put('/:id', checkAuth, checkAdmin, updateSession)
 

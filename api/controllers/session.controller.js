@@ -31,10 +31,22 @@ async function getOneSession(req, res){
 
 async function createOneSession(req, res){
     try {
-        const session = await Session.create(req.body)
-        return res.status(200).json({message:'Session created', session: session})
+        const { userId, packageId } = req.body;
+        const session = await Session.create({
+            userId: userId,
+            packageId: packageId
+        }, {
+            include: [
+                {
+                    model: Package,
+                    as: 'package'
+                }
+            ]
+        });
+
+        return res.status(200).json({message:'Session created', session: session});
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error.message);
     }
 }
 
