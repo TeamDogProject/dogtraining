@@ -67,7 +67,7 @@ async function deleteVideo(req, res) {
     try {
         const video = await Video.destroy({
             where: {
-                id: GETreq.params.id,
+                id: req.params.id,
             },
         })
         if (video) {

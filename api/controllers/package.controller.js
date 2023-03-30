@@ -100,7 +100,7 @@ async function addPackageToUser(req, res){
     try {
 
         const package = await Package.findByPk(req.params.packageId)
-        const user = await User.findByPk(res.locals.user.id)
+        const user = await User.findByPk(req.params.userId)
 
         const category = await package.getCategory()
         await user.addCategory(category)

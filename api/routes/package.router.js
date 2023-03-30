@@ -15,7 +15,6 @@ router.delete('/:id', checkAuth, checkAdmin, deletePackage)
 
 router.put('/:packageId/category/:categoryId', checkAuth, checkAdmin, addCategoryToPackage)
 
-
-router.post('/add/:packageId', checkAuth, checkAdmin, addPackageToUser)
+router.post('/:packageId/user/:userId', checkAuth, checkAdmin, addPackageToUser)
 
 module.exports = router
