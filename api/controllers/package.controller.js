@@ -83,7 +83,7 @@ async function addCategoryToPackage(req, res){
         const package = await Package.findByPk(req.params.packageId)
         const category = await Category.findByPk(req.params.categoryId)
 
-        await package.setCategory()
+        await package.setCategory(category)
 
         if(category)
         {
@@ -104,8 +104,10 @@ async function addPackageToUser(req, res){
 
         const category = await package.getCategory()
         await user.addCategory(category)
+        await user.addPackage(package)
 
-        return res.status(200).send('Category added to package')
+
+        return res.status(200).json(package)
         
     } catch (error) {
         

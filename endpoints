@@ -30,12 +30,7 @@ Method
 | POST   | /products/                | YES   | Admin | Create one product           |  product_id                | { product }                          |
 | PUT    | /products/:productId      | YES   | Admin | Update product               |  product_id                | "Product updated"                    |
 | DELETE | /products/:id             | YES   | Admin | Remove one product           |  product_id                | "Product deleted"                    |
-
-
-
-### Dogs Endpoints
-
-| METHOD | ENDPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
+onst { checkAuth, checkAdmin } = require('../middleware/auth')DPOINT                  | TOKEN | ROLE  | DESCRIPTION                  | POST PARAMS                | RETURNS                              |
 | ------ | ------------------------- | ----- | ----- | ---------------------------- | -------------------------- | ------------------------------------ |
 | GET    | /dogs                     | YES   | Admin | Get all dogs                 | -                          | [{ dogs }]                           |
 | GET    | /dogs/profile             | YES   | User  | Get one dog                  |  dog_id                    | { dog }                              |
