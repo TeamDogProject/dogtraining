@@ -7,10 +7,11 @@ const { getAllVideos, getOneVideo, createOneVideo, updateVideo, deleteVideo, get
 
 router.get('/', checkAuth, checkAdmin, getAllVideos)
 router.get('/:id', checkAuth, checkAdmin, getOneVideo)
+router.get('/categories', checkAuth, getAllVideosByCategories)
+router.get('/me', checkAuth, getMyVideos)
 router.post('/', checkAuth, checkAdmin, createOneVideo)
 router.put('/:id', checkAuth, checkAdmin, updateVideo)
 router.delete('/:id', checkAuth, checkAdmin, deleteVideo)
-router.get('/', checkAuth, getAllVideosByCategories )
-router.get('/', checkAuth, getMyVideos)
+
 
 module.exports = router

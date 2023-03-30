@@ -34,7 +34,11 @@ async function getOneVideo(req, res) {
 
 async function createOneVideo(req, res) {
     try {
+        const categories = req.body.categories
+        delete req.body.categories
+
         const video = await Video.create(req.body)
+        await video.addCategories(categories)
         return res.status(200).json({ message: 'Video created', video: video })
     } catch (error) {
         res.status(500).send(error.message)
@@ -63,7 +67,7 @@ async function deleteVideo(req, res) {
     try {
         const video = await Video.destroy({
             where: {
-                id: req.params.id,
+                id: GETreq.params.id,
             },
         })
         if (video) {
@@ -105,6 +109,7 @@ async function getMyVideos (req, res) {
         throw Error
     }
 }
+
 
 
 
