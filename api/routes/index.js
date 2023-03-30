@@ -7,6 +7,7 @@ router.use('/dogs', require('./dog.router'))
 router.use('/packages', require('./package.router'))
 router.use('/categories', require('./category.router'))
 router.use('/videos', require('./video.router'))
+router.use('/sessions',require('./session.router'))
 
 
 module.exports = router
