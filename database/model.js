@@ -3,6 +3,7 @@ const Dog = require('../api/models/dog.model')
 const Package = require('../api/models/package.model')
 const Category = require('../api/models/category.model')
 const Video = require('../api/models/video.model')
+const Session = require('../api/models/session.model')
 
 
 function addRelationsToModels(){
@@ -21,6 +22,12 @@ function addRelationsToModels(){
 
         Category.belongsToMany(Video, { through: 'categories_videos' })
         Video.belongsToMany(Category, { through: 'categories_videos' })
+
+        Package.hasMany(Session)
+        Session.belongsTo(Package)
+
+        User.hasMany(Session)
+        Session.belongsTo(User)
 
         console.log('Relations added to all models')
 
