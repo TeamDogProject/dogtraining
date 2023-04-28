@@ -4,6 +4,7 @@ const addRelationsToModels = require('./database/model')
 
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 
 async function checkAndSyncMysql (){
     await checkConnection() 
@@ -13,6 +14,7 @@ async function checkAndSyncMysql (){
 
 function initilizedListeningAndExpress(){
     const app = express()
+          .use(cors())
           .use(morgan('dev'))
           .use(express.json())
           .use('/api', require('./api/routes'))
