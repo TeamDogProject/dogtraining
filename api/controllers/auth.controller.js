@@ -40,8 +40,9 @@ const login = async(req, res)=> {
 
 const changePassword = async(req, res) => {
     try {
+        console.log(res.locals.user)
         req.body.password = bcrypt.hashSync(req.body.password,10)
-        const result = await User.update(req.body.password,{
+        const result = await User.update({password: req.body.password},{
             where: {
                 id: res.locals.user.id
             }
@@ -52,7 +53,6 @@ const changePassword = async(req, res) => {
         res.status(500).send(error.message)
     }
     
-
 }
 
 module.exports = {

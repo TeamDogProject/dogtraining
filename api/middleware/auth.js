@@ -2,6 +2,7 @@ const jwt = require ('jsonwebtoken')
 const User = require ('../models/user.model')
 
 const checkAuth = (req,res, next)=> {
+    console.log('Running.....')
     const token = req.headers.token
 
     jwt.verify(token, process.env.SECRET, async (err, payload)=>{
