@@ -4,7 +4,8 @@
   "description": "Dog Training es una plataforma de entrenamiento de perros, que quiere convertirse en un referente nacional en la formación y entrenamiento de  propietarios de perros, así como de personas que quieran convertirse en entrenadores profesionales.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "engines": {
     "node":">=16.14"
